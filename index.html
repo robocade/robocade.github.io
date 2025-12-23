@@ -55,7 +55,7 @@
           </div>
 
           <div class="is-size-5 publication-authors">
-            <span class="author-block"><font size="-0.4">*</font><font size="-0.4">Equal contribution</font></span><br>
+            <span class="author-block"><font size="-0.4"><sup>*</sup></font><font size="-0.4">Equal contribution</font></span><br>
             <span class="author-block"><sup>1</sup>Stanford University, <sup>2</sup>University of Washington, <sup>3</sup>FrodoBots</span>
           </div>
 
@@ -124,7 +124,7 @@
       <div class="column is-four-fifths">
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
-          <p>Imitation learning from human demonstrations has become a dominant approach for training autonomous robot policies. However, collecting demonstration datasets is costly: it often requires access to robots  and needs sustained effort in a tedious, long process. These factors limit the scale of data available for training policies. We aim to address this scalability challenge by involving a broader audience in a gamified data collection experience that is both accessible and motivating. Specifically, we develop a gamified remote teleoperation platform, RoboCade, to engage general users in collecting data that is beneficial for downstream policy training. To do this, we embed gamification strategies into the design of  system interface and data collection tasks. In the system interface, we include components such as visual feedback, sound effects, goal visualizations, progress bars, leaderboards, and badges. We additionally propose principles for constructing gamified tasks that have overlapping structure with useful downstream target tasks. We instantiate RoboCade on three manipulation tasks—including spatial arrangement, scanning, and insertion. To illustrate the viability of gamified robot data collection, we collect a demonstration dataset through our platform, and show that co-training robot policies with this data can improve success rate on non-gamified target tasks (+15-50%). Further, we conduct a user study to validate that novice users find the gamified platform significantly more enjoyable than a standard non-gamified platform (+24%). These results highlight the promise of gamified data collection as a scalable, accessible, and engaging method for collecting demonstration data.
+          <p>Imitation learning from human demonstrations has become a dominant approach for training autonomous robot policies. However, collecting demonstration datasets is costly: it often requires access to robots  and needs sustained effort in a tedious, long process. These factors limit the scale of data available for training policies. We aim to address this scalability challenge by involving a broader audience in a gamified data collection experience that is both accessible and motivating. Specifically, we develop a gamified remote teleoperation platform, RoboCade, to engage general users in collecting data that is beneficial for downstream policy training. To do this, we embed gamification strategies into the design of  system interface and data collection tasks. In the system interface, we include components such as visual feedback, sound effects, goal visualizations, progress bars, leaderboards, and badges. We additionally propose principles for constructing gamified tasks that have overlapping structure with useful downstream target tasks. We instantiate RoboCade on three manipulation tasks—including spatial arrangement, scanning, and insertion. To illustrate the viability of gamified robot data collection, we collect a demonstration dataset through our platform, and show that co-training robot policies with this data can improve success rate on non-gamified target tasks (+16-56%). Further, we conduct a user study to validate that novice users find the gamified platform significantly more enjoyable than a standard non-gamified platform (+24%). These results highlight the promise of gamified data collection as a scalable, accessible, and engaging method for collecting demonstration data.
           </p>
         </div>
       </div>
@@ -241,6 +241,8 @@
             <button class="button is-white"><b>Policy:</b></button>
             <button class="button is-light" onclick="changePolicy('target_only')">Target Only</button>
             <button class="button is-light" onclick="changePolicy('co_train')">Co-train</button>
+            <button class="button is-light" onclick="changePolicy('pi_05_fine_tune')">π<sub>0.5</sub> Fine-tune (Target)</button>
+            <button class="button is-light" onclick="changePolicy('pi_05_co_fine_tune')">π<sub>0.5</sub> Co-fine-tune</button>
           </div>
           <br>
           <center>
@@ -252,13 +254,11 @@
                     <video id="task-video-player-1" autoplay loop muted controls>
                       <source src="" type="video/mp4">
                     </video>
-                    <!-- <div class="video-label">Sample Success</div> -->
                   </div>
                   <div class="video-item" id="task-video-item-2">
                     <video id="task-video-player-2" autoplay loop muted controls>
                       <source src="" type="video/mp4">
                     </video>
-                    <!-- <div class="video-label">Sample Success</div> -->
                   </div>
                 </div>
                 <div class="video-row">
@@ -266,13 +266,11 @@
                     <video id="task-video-player-3" autoplay loop muted controls>
                       <source src="" type="video/mp4">
                     </video>
-                    <!-- <div class="video-label">Sample Failure</div> -->
                   </div>
                   <div class="video-item" id="task-video-item-4">
                     <video id="task-video-player-4" autoplay loop muted controls>
                       <source src="" type="video/mp4">
                     </video>
-                    <!-- <div class="video-label">Sample Failure</div> -->
                   </div>
                 </div>
               </div>
@@ -285,13 +283,11 @@
                     <video id="task-video-player-5" autoplay loop muted controls>
                       <source src="" type="video/mp4">
                     </video>
-                    <!-- <div class="video-label">Sample Success</div> -->
                   </div>
                   <div class="video-item" id="task-video-item-6">
                     <video id="task-video-player-6" autoplay loop muted controls>
                       <source src="" type="video/mp4">
                     </video>
-                    <!-- <div class="video-label">Sample Success</div> -->
                   </div>
                 </div>
                 <div class="video-row">
@@ -299,13 +295,69 @@
                     <video id="task-video-player-7" autoplay loop muted controls>
                       <source src="" type="video/mp4">
                     </video>
-                    <!-- <div class="video-label">Sample Failure</div> -->
                   </div>
                   <div class="video-item" id="task-video-item-8">
                     <video id="task-video-player-8" autoplay loop muted controls>
                       <source src="" type="video/mp4">
                     </video>
-                    <!-- <div class="video-label">Sample Failure</div> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="task-video-3" class="video-container">
+              <h4 id="video-title" class="video-title"></h4>
+              <div class="video-wrapper">
+                <div class="video-row">
+                  <div class="video-item" id="task-video-item-9">
+                    <video id="task-video-player-9" autoplay loop muted controls>
+                      <source src="" type="video/mp4">
+                    </video>
+                  </div>
+                  <div class="video-item" id="task-video-item-10">
+                    <video id="task-video-player-10" autoplay loop muted controls>
+                      <source src="" type="video/mp4">
+                    </video>
+                  </div>
+                </div>
+                <div class="video-row">
+                  <div class="video-item" id="task-video-item-11">
+                    <video id="task-video-player-11" autoplay loop muted controls>
+                      <source src="" type="video/mp4">
+                    </video>
+                  </div>
+                  <div class="video-item" id="task-video-item-12">
+                    <video id="task-video-player-12" autoplay loop muted controls>
+                      <source src="" type="video/mp4">
+                    </video>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="task-video-4" class="video-container">
+              <h4 id="video-title" class="video-title"></h4>
+              <div class="video-wrapper">
+                <div class="video-row">
+                  <div class="video-item" id="task-video-item-13">
+                    <video id="task-video-player-13" autoplay loop muted controls>
+                      <source src="" type="video/mp4">
+                    </video>
+                  </div>
+                  <div class="video-item" id="task-video-item-14">
+                    <video id="task-video-player-14" autoplay loop muted controls>
+                      <source src="" type="video/mp4">
+                    </video>
+                  </div>
+                </div>
+                <div class="video-row">
+                  <div class="video-item" id="task-video-item-15">
+                    <video id="task-video-player-15" autoplay loop muted controls>
+                      <source src="" type="video/mp4">
+                    </video>
+                  </div>
+                  <div class="video-item" id="task-video-item-16">
+                    <video id="task-video-player-16" autoplay loop muted controls>
+                      <source src="" type="video/mp4">
+                    </video>
                   </div>
                 </div>
               </div>
@@ -320,14 +372,27 @@
 
 <hr class="rounded">
 
-<!-- <section class="section" id="BibTeX">
+<section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
     <pre><code>
+@article{robocade2025,
+    title   = {RoboCade: Gamifying Robot Data Collection},
+    author  = {Suvir Mirchandani and Mia Tang and Jiafei Duan and Jubayer Ibn Hamid and Michael Cho and Dorsa Sadigh},
+    journal = {arXiv},
+    year    = {2025},
+}
     </code></pre>
   </div>
-</section> -->
+</section>
 
+<section class="section">
+  <div class="container is-max-desktop content">
+    <h2 class="title">Acknowledgments</h2>
+    We acknowledge funding support from Toyota Research Institute, NSF Award 1941722 and 2006388, ONR YIP and Grant W911NF2210214. 
+We are grateful for useful discussions and feedback from Aaron Tung, Jenn Grannen, Jensen Gao, Shuang Li, Aykut Onol, and Mark Zolotas.
+  </div>
+</section>
 
 <footer class="footer">
   <div class="container">
