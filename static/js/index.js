@@ -39,17 +39,9 @@ $(document).ready(function() {
 
 let currentTask = null;
 
-function changeTask(taskName) {
+const POLICIES = ['target_only', 'co_train', 'pi_05_fine_tune', 'pi_05_co_fine_tune'];
 
-  const videoPlayer1 = document.getElementById('task-video-player-1');
-  const videoPlayer2 = document.getElementById('task-video-player-2');
-  const videoPlayer3 = document.getElementById('task-video-player-3');
-  const videoPlayer4 = document.getElementById('task-video-player-4');
-  const videoPlayer5 = document.getElementById('task-video-player-5');
-  const videoPlayer6 = document.getElementById('task-video-player-6');
-  const videoPlayer7 = document.getElementById('task-video-player-7');
-  const videoPlayer8 = document.getElementById('task-video-player-8');
-  
+function changeTask(taskName) {
   document.querySelectorAll('.task-selector .button').forEach(button => {
     button.classList.remove('is-active');
   });
@@ -59,25 +51,30 @@ function changeTask(taskName) {
     clickedButton.classList.add('is-active');
   }
 
-  videoPlayer1.src = 'static/videos/' + taskName + '/target_only/sample1.mp4';
-  videoPlayer2.src = 'static/videos/' + taskName + '/target_only/sample2.mp4';
-  videoPlayer3.src = 'static/videos/' + taskName + '/target_only/sample3.mp4';
-  videoPlayer4.src = 'static/videos/' + taskName + '/target_only/sample4.mp4';
+  POLICIES.forEach(policy => {
+    for (let i = 1; i <= 4; i++) {
+      const player = document.getElementById(`task-video-player-${(POLICIES.indexOf(policy) * 4) + i}`);
+      if (player) {
+        player.src = `static/videos/${taskName}/${policy}/sample${i}.mp4`;
+      }
+    }
+  });
 
-  videoPlayer5.src = 'static/videos/' + taskName + '/co_train/sample1.mp4';
-  videoPlayer6.src = 'static/videos/' + taskName + '/co_train/sample2.mp4';
-  videoPlayer7.src = 'static/videos/' + taskName + '/co_train/sample3.mp4';
-  videoPlayer8.src = 'static/videos/' + taskName + '/co_train/sample4.mp4';
-  
-  // Iterate through the video labels and mark them as 1x
   const videoLabels = document.querySelectorAll('.video-label');
   videoLabels.forEach(label => {
     label.innerHTML = label.innerHTML.replace(/(\d+)x/, '1x');
   });
+
+  // Hide pi policies for ArrangeDesk task
+  const piPolicies = document.querySelectorAll('.policy-selector .button[onclick*="pi_05"]');
+  if (taskName === 'scene') {
+    piPolicies.forEach(button => button.style.display = 'none');
+  } else {
+    piPolicies.forEach(button => button.style.display = 'inline-block');
+  }
 }
 
 function changePolicy(policyName) {
-
   document.querySelectorAll('.policy-selector .button').forEach(button => {
     button.classList.remove('is-active');
   });
@@ -87,22 +84,16 @@ function changePolicy(policyName) {
     clickedButton.classList.add('is-active');
   }
 
-  const videoContainer1 = document.getElementById('task-video-1');
-  const videoContainer2 = document.getElementById('task-video-2');
-
-  if (policyName == "target_only") {
-    videoContainer1.style.display = 'block';
-    videoContainer2.style.display = 'none';
-  }
-  else if (policyName == "co_train") {
-    videoContainer1.style.display = 'none';
-    videoContainer2.style.display = 'block';
-  }
-
+  POLICIES.forEach((policy, index) => {
+    const container = document.getElementById(`task-video-${index + 1}`);
+    if (container) {
+      container.style.display = policy === policyName ? 'block' : 'none';
+    }
+  });
 }
 
 
 document.addEventListener('DOMContentLoaded', (event) => {
   changeTask('scene');
-  changePolicy('target_only')
+  changePolicy('target_only');
 });
