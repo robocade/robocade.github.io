@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="RoboCade: Gamifying Robot Data Collection">
+  <meta name="keywords" content="RoboCade">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RoboCade: Gamifying Robot Data Collection</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <!-- <link rel="icon" href="./static/images/favicon.svg"> -->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">RoboCade: Gamifying Robot Data Collection</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://suvirpmirchandani.com/">Suvir Mirchandani</a><sup>*,1</sup>,</span>
+            <span class="author-block">
+              <a href="https://www.mia-tang.com/">Mia Tang</a><sup>*,1</sup>,</span>
+            <span class="author-block">
+              <a href="https://duanjiafei.com/">Jiafei Duan</a><sup>2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://jubayer-ibn-hamid.github.io/">Jubayer Ibn Hamid</a><sup>1</sup>,
+            </span>
+            <span class="author-block"></span>
+            <a href="https://www.linkedin.com/in/michael-chung-yeung-cho/">Michael Cho</a><sup>3</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://dorsa.fyi/">Dorsa Sadigh</a><sup>1</sup>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><font size="-0.4">*</font><font size="-0.4">Equal contribution</font></span><br>
+            <span class="author-block"><sup>1</sup>Stanford University, <sup>2</sup>University of Washington, <sup>3</sup>FrodoBots</span>
+          </div>
+
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="./static/pdfs/paper.pdf"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>arXiv (coming soon)</span>
+                </a>
+              </span>
+              <!-- <span class="link-block">
+                <a href="./static/pdfs/appendix.pdf"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Appendix</span>
+                </a>
+              </span> -->
+              <!-- <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                      <i class="fab fa-youtube"></i>
+                      <i class="fab fa-github"></i>
+                      <i class="far fa-images"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span> -->
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <video id="teaser" controls playsinline height="100%">
+        <source src="./static/videos/robocade-overview-1080p.mp4"
+                type="video/mp4">
+      </video>
+      <h2 class="subtitle has-text-centered">
+        
+      </h2>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>Imitation learning from human demonstrations has become a dominant approach for training autonomous robot policies. However, collecting demonstration datasets is costly: it often requires access to robots  and needs sustained effort in a tedious, long process. These factors limit the scale of data available for training policies. We aim to address this scalability challenge by involving a broader audience in a gamified data collection experience that is both accessible and motivating. Specifically, we develop a gamified remote teleoperation platform, RoboCade, to engage general users in collecting data that is beneficial for downstream policy training. To do this, we embed gamification strategies into the design of  system interface and data collection tasks. In the system interface, we include components such as visual feedback, sound effects, goal visualizations, progress bars, leaderboards, and badges. We additionally propose principles for constructing gamified tasks that have overlapping structure with useful downstream target tasks. We instantiate RoboCade on three manipulation tasks—including spatial arrangement, scanning, and insertion. To illustrate the viability of gamified robot data collection, we collect a demonstration dataset through our platform, and show that co-training robot policies with this data can improve success rate on non-gamified target tasks (+15-50%). Further, we conduct a user study to validate that novice users find the gamified platform significantly more enjoyable than a standard non-gamified platform (+24%). These results highlight the promise of gamified data collection as a scalable, accessible, and engaging method for collecting demonstration data.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+  </div>
+</section>
+
+
+<section class="is-light is-small">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <div class="publication-image">
+          <center>
+            <img src="static/images/teaser.png" alt="" width="50%">
+          </center>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="hero teaser">
+  <div class="container is-fullhd">
+    <div class="hero-body">
+      <div class="columns is-centered">
+        <div class="column is-full-width">
+          <br>
+          <center>
+            <h2 class="subtitle has-text-centered" style="width: 80%"">
+              We develop RoboCade, a platform that gamifies the collection of robot demonstration datasets. In standard data collection approaches (top), hired operators or researchers collect demonstrations using in-person teleoperation, which requires access to a robot and can be tedious and time-consuming. RoboCade (bottom) is a remote data collection platform that integrates gamification into both system and task design, making robot data collection more engaging and accessible to a broader set of users.
+            </h2>
+          </center>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="is-light is-small">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <div class="publication-image">
+          <center>
+            <img src="static/images/interface.png" alt="" width="55%">
+          </center>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<hr class="rounded">
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Key Findings</h2>        
+
+        <p style="text-align: left;">
+          <b>User Study Subjective Results.</b> We report user rankings for our RoboCade system compared to a non-gamified remote teleoperation interface. The GELLO controller is used in both conditions. Users tend to find the gamified interface more intuitive, enjoyable, and motivating. * indicates significance at <i>p</i> < 0.05 under a Wilcoxon signed-rank test.
+          <br><br>
+          <center>
+            <img src="./static/images/user_study_likert.png" width="70%">
+          </center>
+          <br><br>
+        </p>
+        <p style="text-align: left;">
+          <b>Co-training with Gamified Data.</b> For our 3 target tasks, we compare the performance of Diffusion Policy (Chi et al. 2023) when trained only on target task data (<i>Target Only</i>) versus co-trained with gamified support tasks (<i>Co-train</i>), with a fixed training budget. For each task and training condition, we perform 25 trials and report staged success rate (%). Co-training improves success rate on all 3 tasks for in-distribution conditions (<i>In-Dist.</i>). For ScanBottle and PackBox, we additionally evaluate on out-of-distribution initial configurations (<i>Out-of-Dist</i>.) and find that co-training improves generalization.
+          <br><br>
+          <img src="./static/images/policy_learning.png" width="100%">
+          <br><br>
+        </p>
+        <b>VLA Co-fine-tuning with Gamified Data.</b> We compare the performance of a version of π<sub>0.5</sub> (Black et al. 2025) fine-tuned on the DROID dataset (Khazatsky et al. 2024) when further fine-tuned on target task data versus co-fine-tuned on both target task and gamified support task data, with a fixed budget of training steps. For each task and training condition, we perform 25 trials. Co-fine-tuning on gamified support task data improves performance in out-of-distribution initial configurations (<i>Out-of-Dist.</i>) while matching or exceeding performance in in-distribution conditions (<i>In-Dist.</i>).
+        <br><br>
+        <center>
+          <img src="./static/images/vla_policy_learning.png" width="65%">
+        </center>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<hr class="rounded">
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Sample Policy Rollouts</h2>
+        <p>
+          Select one of the target tasks and policy types below to view sample trajectories. We include both successes and failures.
+          <br>
+          <br>
+        </p>
+        <div class="content has-text-justified">
+          <div class="task-selector has-text-centered">
+            <button class="button is-white"><b>Task:</b></button>
+            <button class="button is-light" onclick="changeTask('scene')">ArrangeDesk</button>
+            <button class="button is-light" onclick="changeTask('scan')">ScanBottle</button>
+            <button class="button is-light" onclick="changeTask('scan_ood')">ScanBottle (OOD)</button>
+            <button class="button is-light" onclick="changeTask('box')">PackBox</button>
+            <button class="button is-light" onclick="changeTask('box_ood')">PackBox (OOD)</button>
+          </div>
+          <br>
+          <div class="policy-selector has-text-centered">
+            <button class="button is-white"><b>Policy:</b></button>
+            <button class="button is-light" onclick="changePolicy('target_only')">Target Only</button>
+            <button class="button is-light" onclick="changePolicy('co_train')">Co-train</button>
+          </div>
+          <br>
+          <center>
+            <div id="task-video-1" class="video-container">
+              <h4 id="video-title" class="video-title"></h4>
+              <div class="video-wrapper">
+                <div class="video-row">
+                  <div class="video-item" id="task-video-item-1">
+                    <video id="task-video-player-1" autoplay loop muted controls>
+                      <source src="" type="video/mp4">
+                    </video>
+                    <!-- <div class="video-label">Sample Success</div> -->
+                  </div>
+                  <div class="video-item" id="task-video-item-2">
+                    <video id="task-video-player-2" autoplay loop muted controls>
+                      <source src="" type="video/mp4">
+                    </video>
+                    <!-- <div class="video-label">Sample Success</div> -->
+                  </div>
+                </div>
+                <div class="video-row">
+                  <div class="video-item" id="task-video-item-3">
+                    <video id="task-video-player-3" autoplay loop muted controls>
+                      <source src="" type="video/mp4">
+                    </video>
+                    <!-- <div class="video-label">Sample Failure</div> -->
+                  </div>
+                  <div class="video-item" id="task-video-item-4">
+                    <video id="task-video-player-4" autoplay loop muted controls>
+                      <source src="" type="video/mp4">
+                    </video>
+                    <!-- <div class="video-label">Sample Failure</div> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="task-video-2" class="video-container">
+              <h4 id="video-title" class="video-title"></h4>
+              <div class="video-wrapper">
+                <div class="video-row">
+                  <div class="video-item" id="task-video-item-5">
+                    <video id="task-video-player-5" autoplay loop muted controls>
+                      <source src="" type="video/mp4">
+                    </video>
+                    <!-- <div class="video-label">Sample Success</div> -->
+                  </div>
+                  <div class="video-item" id="task-video-item-6">
+                    <video id="task-video-player-6" autoplay loop muted controls>
+                      <source src="" type="video/mp4">
+                    </video>
+                    <!-- <div class="video-label">Sample Success</div> -->
+                  </div>
+                </div>
+                <div class="video-row">
+                  <div class="video-item" id="task-video-item-7">
+                    <video id="task-video-player-7" autoplay loop muted controls>
+                      <source src="" type="video/mp4">
+                    </video>
+                    <!-- <div class="video-label">Sample Failure</div> -->
+                  </div>
+                  <div class="video-item" id="task-video-item-8">
+                    <video id="task-video-player-8" autoplay loop muted controls>
+                      <source src="" type="video/mp4">
+                    </video>
+                    <!-- <div class="video-label">Sample Failure</div> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </center>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<hr class="rounded">
+
+<!-- <section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>
+    </code></pre>
+  </div>
+</section> -->
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p></p>
+            This website is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0 License</a>,
+            courtesy of <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a> and <a href="https://peract.github.io/">PerAct</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
